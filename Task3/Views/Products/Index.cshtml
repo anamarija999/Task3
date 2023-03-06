@@ -1,0 +1,60 @@
+﻿@model List<Task3.Models.ProductCategory>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<table class="table">
+    <thead class="input">
+        <tr>
+            <th>
+
+            </th>
+            <th>
+                ProductName
+            </th>
+            <th>
+               CategoryName
+            </th>
+            <th>
+              Description
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="input">
+        @foreach (var item in Model)
+        {
+            <tr style="border-color:black;border-style:double;">
+                <td>
+                    @if (item.Picture != null)
+                    {
+                        
+                        <img src="~/images/@item.Picture"
+                             
+                             height="100" width="100"
+                             asp-append-version="true" /> }
+                    else
+                    {
+                        <img src="~/images/images.png"
+                             class="rounded-circle"
+                             height="100" width="100"
+                             asp-append-version="true" />}
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+</table>
+
